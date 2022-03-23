@@ -332,7 +332,10 @@ all: clean fetch report build lint
 
 .PHONY: pr
 pr:
-	jx gitops apply --pull-request
+	jx gitops apply --pull-request || true
+	git status
+	git show
+	exit 1
 
 .PHONY: pr-regen
 pr-regen: all commit push-pr-branch
