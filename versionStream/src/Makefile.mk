@@ -269,6 +269,8 @@ status:
 # lets update the deployment status to your git repository (e.g. https://github.com)
 	jx gitops helmfile status
 
+	find / -name '*gitops*' || true
+
 .PHONY: apply-completed
 apply-completed: $(POST_APPLY_HOOK)
 # copy any git operator secrets to the jx namespace
